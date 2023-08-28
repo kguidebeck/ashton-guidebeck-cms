@@ -13,9 +13,17 @@ export default {
       },
     },
     {
+      name: "secret",
+      type: "text",
+      title: "Secret",
+      description: "Optional hidden paragraph exclusively for search engines",
+      rows: 2,
+    },
+    {
       name: "description",
-      type: "string",
+      type: "text",
       title: "Description",
+      rows: 3,
     },
     {
       name: "keywords",
@@ -23,41 +31,9 @@ export default {
       title: "Keywords",
     },
     {
-      name: "canonical_url",
-      type: "string",
-      title: "Canonical URL",
-      description:
-        "When empty, the canonical tag will default to a self-referential URL.",
-    },
-    {
-      name: "og_site_name",
-      type: "string",
-      title: "OG Site Name",
-    },
-    {
-      name: "og_title",
-      type: "string",
-      title: "OG Title",
-    },
-    {
-      name: "og_description",
-      type: "string",
-      title: "OG Description",
-    },
-    // {
-    //   name: "og_image",
-    //   type: "media_asset",
-    //   title: "OG Image",
-    // },
-    {
-      name: "itemprop_title",
-      type: "string",
-      title: "Itemprop Title",
-    },
-    {
-      name: "itemprop_desc",
-      type: "string",
-      title: "Itemprop Desc",
+      name: "image",
+      type: "image",
+      title: "Image",
     },
     {
       name: "no_index",
