@@ -27,11 +27,5 @@ export default {
       title: "Background Graphic (Mobile)",
       type: "assetImage",
     },
-    {
-      name: "show_socials",
-      title: "Show Social Links",
-      type: "boolean",
-      initialValue: false,
-    },
   ],
 };

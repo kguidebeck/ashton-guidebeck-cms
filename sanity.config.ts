@@ -3,6 +3,8 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
 import { media } from "sanity-plugin-media";
+import { dashboardTool } from "@sanity/dashboard";
+import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
 import {
   BsFillPlayCircleFill,
   BsFillWrenchAdjustableCircleFill,
@@ -14,12 +16,7 @@ import deskStructure from "./part/deskStructure";
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 
 // Define the singleton document types
-const singletonTypes = new Set([
-  // "page_home",
-  // "page_connect",
-  // "page_blog",
-  // "page_resume",
-]);
+const singletonTypes = new Set(["page_home", "page_connect", "page_resume"]);
 
 const tools = (prev, context) => {
   const isAdmin = context.currentUser.roles.find(
@@ -71,6 +68,21 @@ export default defineConfig([
     dataset: "production",
     icon: BsFillPlayCircleFill,
     plugins: [
+      dashboardTool({
+        widgets: [
+          netlifyWidget({
+            title: "Deploy Site",
+            sites: [
+              {
+                title: "Ashton Guidebeck",
+                apiId: "fa974d14-d2f1-4b50-88b2-b6b724e5ef3b",
+                buildHookId: "64ebc29dee3f7a218fb6fffd",
+                name: "ashtonguidebeck-app",
+              },
+            ],
+          }),
+        ],
+      }),
       deskTool({
         structure: deskStructure,
       }),
